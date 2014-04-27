@@ -14,13 +14,13 @@
 		9EA3EE7C190DB3C100F0C6D1 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA3EE7B190DB3C100F0C6D1 /* main.m */; };
 		9EA3EE80190DB3C100F0C6D1 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA3EE7F190DB3C100F0C6D1 /* AppDelegate.m */; };
 		9EA3EE83190DB3C100F0C6D1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9EA3EE81190DB3C100F0C6D1 /* Main.storyboard */; };
-		9EA3EE86190DB3C100F0C6D1 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA3EE85190DB3C100F0C6D1 /* ViewController.m */; };
 		9EA3EE88190DB3C100F0C6D1 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9EA3EE87190DB3C100F0C6D1 /* Images.xcassets */; };
 		9EA3EE8F190DB3C100F0C6D1 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA3EE8E190DB3C100F0C6D1 /* XCTest.framework */; };
 		9EA3EE90190DB3C100F0C6D1 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA3EE6F190DB3C100F0C6D1 /* Foundation.framework */; };
 		9EA3EE91190DB3C100F0C6D1 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA3EE73190DB3C100F0C6D1 /* UIKit.framework */; };
 		9EA3EE99190DB3C100F0C6D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EA3EE97190DB3C100F0C6D1 /* InfoPlist.strings */; };
 		9EA3EE9B190DB3C100F0C6D1 /* SpotsAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA3EE9A190DB3C100F0C6D1 /* SpotsAppTests.m */; };
+		9EA3EEA6190DB43500F0C6D1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA3EEA5190DB43500F0C6D1 /* HomeViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,14 +45,14 @@
 		9EA3EE7E190DB3C100F0C6D1 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		9EA3EE7F190DB3C100F0C6D1 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		9EA3EE82190DB3C100F0C6D1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		9EA3EE84190DB3C100F0C6D1 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		9EA3EE85190DB3C100F0C6D1 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		9EA3EE87190DB3C100F0C6D1 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		9EA3EE8D190DB3C100F0C6D1 /* SpotsAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SpotsAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		9EA3EE8E190DB3C100F0C6D1 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		9EA3EE96190DB3C100F0C6D1 /* SpotsAppTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SpotsAppTests-Info.plist"; sourceTree = "<group>"; };
 		9EA3EE98190DB3C100F0C6D1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		9EA3EE9A190DB3C100F0C6D1 /* SpotsAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpotsAppTests.m; sourceTree = "<group>"; };
+		9EA3EEA4190DB43500F0C6D1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
+		9EA3EEA5190DB43500F0C6D1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,10 +115,10 @@
 				9EA3EE7E190DB3C100F0C6D1 /* AppDelegate.h */,
 				9EA3EE7F190DB3C100F0C6D1 /* AppDelegate.m */,
 				9EA3EE81190DB3C100F0C6D1 /* Main.storyboard */,
-				9EA3EE84190DB3C100F0C6D1 /* ViewController.h */,
-				9EA3EE85190DB3C100F0C6D1 /* ViewController.m */,
 				9EA3EE87190DB3C100F0C6D1 /* Images.xcassets */,
 				9EA3EE76190DB3C100F0C6D1 /* Supporting Files */,
+				9EA3EEA4190DB43500F0C6D1 /* HomeViewController.h */,
+				9EA3EEA5190DB43500F0C6D1 /* HomeViewController.m */,
 			);
 			path = SpotsApp;
 			sourceTree = "<group>";
@@ -249,9 +249,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9EA3EE86190DB3C100F0C6D1 /* ViewController.m in Sources */,
 				9EA3EE80190DB3C100F0C6D1 /* AppDelegate.m in Sources */,
 				9EA3EE7C190DB3C100F0C6D1 /* main.m in Sources */,
+				9EA3EEA6190DB43500F0C6D1 /* HomeViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -379,6 +379,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpotsApp/SpotsApp-Prefix.pch";
 				INFOPLIST_FILE = "SpotsApp/SpotsApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -392,6 +393,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "SpotsApp/SpotsApp-Prefix.pch";
 				INFOPLIST_FILE = "SpotsApp/SpotsApp-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
