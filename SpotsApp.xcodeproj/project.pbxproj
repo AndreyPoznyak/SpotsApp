@@ -21,6 +21,7 @@
 		9EA3EE99190DB3C100F0C6D1 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 9EA3EE97190DB3C100F0C6D1 /* InfoPlist.strings */; };
 		9EA3EE9B190DB3C100F0C6D1 /* SpotsAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA3EE9A190DB3C100F0C6D1 /* SpotsAppTests.m */; };
 		9EA3EEA6190DB43500F0C6D1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA3EEA5190DB43500F0C6D1 /* HomeViewController.m */; };
+		9EA3EEA9190DB8F400F0C6D1 /* NetworksListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA3EEA8190DB8F400F0C6D1 /* NetworksListTableViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +54,8 @@
 		9EA3EE9A190DB3C100F0C6D1 /* SpotsAppTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SpotsAppTests.m; sourceTree = "<group>"; };
 		9EA3EEA4190DB43500F0C6D1 /* HomeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
 		9EA3EEA5190DB43500F0C6D1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
+		9EA3EEA7190DB8F400F0C6D1 /* NetworksListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworksListTableViewController.h; sourceTree = "<group>"; };
+		9EA3EEA8190DB8F400F0C6D1 /* NetworksListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworksListTableViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -119,6 +122,8 @@
 				9EA3EE76190DB3C100F0C6D1 /* Supporting Files */,
 				9EA3EEA4190DB43500F0C6D1 /* HomeViewController.h */,
 				9EA3EEA5190DB43500F0C6D1 /* HomeViewController.m */,
+				9EA3EEA7190DB8F400F0C6D1 /* NetworksListTableViewController.h */,
+				9EA3EEA8190DB8F400F0C6D1 /* NetworksListTableViewController.m */,
 			);
 			path = SpotsApp;
 			sourceTree = "<group>";
@@ -249,6 +254,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EA3EEA9190DB8F400F0C6D1 /* NetworksListTableViewController.m in Sources */,
 				9EA3EE80190DB3C100F0C6D1 /* AppDelegate.m in Sources */,
 				9EA3EE7C190DB3C100F0C6D1 /* main.m in Sources */,
 				9EA3EEA6190DB43500F0C6D1 /* HomeViewController.m in Sources */,
