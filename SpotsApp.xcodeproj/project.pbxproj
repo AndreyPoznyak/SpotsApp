@@ -22,6 +22,9 @@
 		9EA3EE9B190DB3C100F0C6D1 /* SpotsAppTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA3EE9A190DB3C100F0C6D1 /* SpotsAppTests.m */; };
 		9EA3EEA6190DB43500F0C6D1 /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA3EEA5190DB43500F0C6D1 /* HomeViewController.m */; };
 		9EA3EEA9190DB8F400F0C6D1 /* NetworksListTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA3EEA8190DB8F400F0C6D1 /* NetworksListTableViewController.m */; };
+		9EA3EEB0191300C700F0C6D1 /* HotSpotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA3EEAF191300C700F0C6D1 /* HotSpotViewController.m */; };
+		9EA3EEB21913025F00F0C6D1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA3EEB11913025F00F0C6D1 /* SystemConfiguration.framework */; };
+		9EA3EEB41913078300F0C6D1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA3EEB31913078300F0C6D1 /* CoreLocation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +59,10 @@
 		9EA3EEA5190DB43500F0C6D1 /* HomeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HomeViewController.m; sourceTree = "<group>"; };
 		9EA3EEA7190DB8F400F0C6D1 /* NetworksListTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NetworksListTableViewController.h; sourceTree = "<group>"; };
 		9EA3EEA8190DB8F400F0C6D1 /* NetworksListTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NetworksListTableViewController.m; sourceTree = "<group>"; };
+		9EA3EEAE191300C700F0C6D1 /* HotSpotViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotSpotViewController.h; sourceTree = "<group>"; };
+		9EA3EEAF191300C700F0C6D1 /* HotSpotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotSpotViewController.m; sourceTree = "<group>"; };
+		9EA3EEB11913025F00F0C6D1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		9EA3EEB31913078300F0C6D1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +70,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9EA3EEB41913078300F0C6D1 /* CoreLocation.framework in Frameworks */,
+				9EA3EEB21913025F00F0C6D1 /* SystemConfiguration.framework in Frameworks */,
 				9EA3EE72190DB3C100F0C6D1 /* CoreGraphics.framework in Frameworks */,
 				9EA3EE74190DB3C100F0C6D1 /* UIKit.framework in Frameworks */,
 				9EA3EE70190DB3C100F0C6D1 /* Foundation.framework in Frameworks */,
@@ -104,6 +113,8 @@
 		9EA3EE6E190DB3C100F0C6D1 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				9EA3EEB31913078300F0C6D1 /* CoreLocation.framework */,
+				9EA3EEB11913025F00F0C6D1 /* SystemConfiguration.framework */,
 				9EA3EE6F190DB3C100F0C6D1 /* Foundation.framework */,
 				9EA3EE71190DB3C100F0C6D1 /* CoreGraphics.framework */,
 				9EA3EE73190DB3C100F0C6D1 /* UIKit.framework */,
@@ -124,6 +135,8 @@
 				9EA3EEA5190DB43500F0C6D1 /* HomeViewController.m */,
 				9EA3EEA7190DB8F400F0C6D1 /* NetworksListTableViewController.h */,
 				9EA3EEA8190DB8F400F0C6D1 /* NetworksListTableViewController.m */,
+				9EA3EEAE191300C700F0C6D1 /* HotSpotViewController.h */,
+				9EA3EEAF191300C700F0C6D1 /* HotSpotViewController.m */,
 			);
 			path = SpotsApp;
 			sourceTree = "<group>";
@@ -255,6 +268,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9EA3EEA9190DB8F400F0C6D1 /* NetworksListTableViewController.m in Sources */,
+				9EA3EEB0191300C700F0C6D1 /* HotSpotViewController.m in Sources */,
 				9EA3EE80190DB3C100F0C6D1 /* AppDelegate.m in Sources */,
 				9EA3EE7C190DB3C100F0C6D1 /* main.m in Sources */,
 				9EA3EEA6190DB43500F0C6D1 /* HomeViewController.m in Sources */,
@@ -464,6 +478,7 @@
 				9EA3EEA0190DB3C100F0C6D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		9EA3EEA1190DB3C100F0C6D1 /* Build configuration list for PBXNativeTarget "SpotsAppTests" */ = {
 			isa = XCConfigurationList;
@@ -472,6 +487,7 @@
 				9EA3EEA3190DB3C100F0C6D1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

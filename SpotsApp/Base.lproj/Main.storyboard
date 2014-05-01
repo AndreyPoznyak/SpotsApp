@@ -19,11 +19,21 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VmD-tY-hD8">
                                 <rect key="frame" x="20" y="94" width="259" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Scan available networks around">
+                                <state key="normal" title="History">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
                                     <segue destination="mbH-su-GA6" kind="push" id="NwW-H4-M9U"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hn3-9V-cqU">
+                                <rect key="frame" x="20" y="132" width="259" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Get current info">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="jCn-v2-c26" kind="push" id="slC-7n-uF9"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -62,7 +72,26 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ex-9O-Aa7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1226" y="75"/>
+            <point key="canvasLocation" x="1332" y="-167"/>
+        </scene>
+        <!--Hot Spot View Controller-->
+        <scene sceneID="jqh-P7-Vp1">
+            <objects>
+                <viewController id="jCn-v2-c26" customClass="HotSpotViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WjM-Tc-aQa"/>
+                        <viewControllerLayoutGuide type="bottom" id="6Jl-Ev-eNT"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="wRI-hO-Uij">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="oOf-pt-3t5"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1BW-uV-7gf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1332" y="504"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dXP-wO-R7g">
