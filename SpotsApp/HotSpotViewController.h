@@ -12,4 +12,11 @@
 
 @interface HotSpotViewController : UIViewController
 
+@property (weak, nonatomic) IBOutlet UILabel *labelName;
+@property (weak, nonatomic) IBOutlet UILabel *labelBssid;
+@property (weak, nonatomic) IBOutlet UILabel *labelLongitude;
+@property (weak, nonatomic) IBOutlet UILabel *labelLatitude;
+
+- (IBAction)submitPressed;
+
 @end
