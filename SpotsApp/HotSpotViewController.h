@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HotSpot.h"
 #import <SystemConfiguration/CaptiveNetwork.h>
 
 
@@ -16,6 +17,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *labelBssid;
 @property (weak, nonatomic) IBOutlet UILabel *labelLongitude;
 @property (weak, nonatomic) IBOutlet UILabel *labelLatitude;
+
+@property (strong, nonatomic) HotSpot *currentSpot;
 
 - (IBAction)submitPressed;
 

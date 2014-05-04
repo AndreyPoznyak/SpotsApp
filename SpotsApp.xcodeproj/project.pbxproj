@@ -25,6 +25,7 @@
 		9EA3EEB0191300C700F0C6D1 /* HotSpotViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA3EEAF191300C700F0C6D1 /* HotSpotViewController.m */; };
 		9EA3EEB21913025F00F0C6D1 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA3EEB11913025F00F0C6D1 /* SystemConfiguration.framework */; };
 		9EA3EEB41913078300F0C6D1 /* CoreLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9EA3EEB31913078300F0C6D1 /* CoreLocation.framework */; };
+		9EA3EEB71916859400F0C6D1 /* HotSpot.m in Sources */ = {isa = PBXBuildFile; fileRef = 9EA3EEB61916859400F0C6D1 /* HotSpot.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -63,6 +64,8 @@
 		9EA3EEAF191300C700F0C6D1 /* HotSpotViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotSpotViewController.m; sourceTree = "<group>"; };
 		9EA3EEB11913025F00F0C6D1 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		9EA3EEB31913078300F0C6D1 /* CoreLocation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreLocation.framework; path = System/Library/Frameworks/CoreLocation.framework; sourceTree = SDKROOT; };
+		9EA3EEB51916859400F0C6D1 /* HotSpot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotSpot.h; sourceTree = "<group>"; };
+		9EA3EEB61916859400F0C6D1 /* HotSpot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotSpot.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +140,8 @@
 				9EA3EEA8190DB8F400F0C6D1 /* NetworksListTableViewController.m */,
 				9EA3EEAE191300C700F0C6D1 /* HotSpotViewController.h */,
 				9EA3EEAF191300C700F0C6D1 /* HotSpotViewController.m */,
+				9EA3EEB51916859400F0C6D1 /* HotSpot.h */,
+				9EA3EEB61916859400F0C6D1 /* HotSpot.m */,
 			);
 			path = SpotsApp;
 			sourceTree = "<group>";
@@ -272,6 +277,7 @@
 				9EA3EE80190DB3C100F0C6D1 /* AppDelegate.m in Sources */,
 				9EA3EE7C190DB3C100F0C6D1 /* main.m in Sources */,
 				9EA3EEA6190DB43500F0C6D1 /* HomeViewController.m in Sources */,
+				9EA3EEB71916859400F0C6D1 /* HotSpot.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

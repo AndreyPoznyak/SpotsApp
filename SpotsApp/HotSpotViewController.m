@@ -7,8 +7,6 @@
 //
 
 #import "HotSpotViewController.h"
-#import "AppDelegate.h"
-
 
 @interface HotSpotViewController ()
 
@@ -20,6 +18,7 @@
 @synthesize labelLatitude;
 @synthesize labelLongitude;
 @synthesize labelName;
+@synthesize currentSpot;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -34,14 +33,14 @@
 {
     [super viewDidLoad];
     
-    AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
     id info = [self fetchSSIDInfo];
     
-    [self.labelName setText: info[@"SSID"]];
-    [self.labelBssid setText: info[@"BSSID"]];
-    [self.labelLongitude setText: [NSString stringWithFormat:@"%.0f", appdelegate.currentLongitude]];
-    [self.labelLatitude setText: [NSString stringWithFormat:@"%.0f", appdelegate.currentLatitude]];
+    self.currentSpot = [[HotSpot alloc] initWithName:info[@"SSID"] andBssid:info[@"BSSID"]];
+    
+    [self.labelName setText: self.currentSpot.name];
+    [self.labelBssid setText: self.currentSpot.bssid];
+    [self.labelLongitude setText: [NSString stringWithFormat:@"%.0f", self.currentSpot.longitude]];
+    [self.labelLatitude setText: [NSString stringWithFormat:@"%.0f", self.currentSpot.latitude]];
 
 }
 
@@ -50,17 +49,10 @@
     return (__bridge_transfer id)CNCopyCurrentNetworkInfo((__bridge CFStringRef)@"en0");
 }
 
-- (void)testSendingToService
+- (void)sendSpotToService
 {
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    NSURL *postURL = [NSURL URLWithString: @"http://texas/WebSite3/Service.asmx/doSomething"];
-    NSDictionary *jsonDict = [[NSDictionary alloc] initWithObjectsAndKeys:
-                              @"test@gmail.com", @"email",
-                              @"John Doe", @"name",
-                              nil];
-    
-    NSString *postValues = [jsonDict urlEncodedString];
-    NSData *jsonData = [postValues dataUsingEncoding: NSUTF8StringEncoding];
+    NSURL *postURL = [NSURL URLWithString: @"http://192.168.1.7:8765/hotspot"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: postURL
                                                            cachePolicy: NSURLRequestUseProtocolCachePolicy
@@ -68,18 +60,22 @@
     
     [request setHTTPMethod: @"POST"];
     [request setValue: @"application/json" forHTTPHeaderField: @"Accept"];
-    // [request setValue: @"application/json" forHTTPHeaderField: @"content-type"];
-    [request setValue: @"application/x-www-form-urlencoded" forHTTPHeaderField: @"content-type"];
-    [request setHTTPBody: jsonData];
+    [request setHTTPBody: [self.currentSpot jsonData]];
     
     [NSURLConnection sendAsynchronousRequest: request
                                        queue: queue
                            completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error) {
+                               NSString *message = [[NSString alloc] init];
                                if (error || !data) {
-                                   // Handle the error
+                                   message = [error localizedDescription];
                                } else {
-                                   // Handle the success
+                                   message = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
                                }
+                               UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Submit result" message:message delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                               //in order to remove delay and show alert immediately
+                               dispatch_async(dispatch_get_main_queue(), ^{
+                                   [alert show];
+                               });
                            }
      ];
 }
@@ -87,6 +83,7 @@
 - (IBAction)submitPressed
 {
     //send this shit to the service somehow here
+    [self sendSpotToService];
 }
 
 - (void)didReceiveMemoryWarning
