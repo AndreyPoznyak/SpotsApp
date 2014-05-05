@@ -10,6 +10,6 @@
 
 @interface NetworksListTableViewController : UITableViewController
 
-@property (nonatomic, retain) NSArray *testArray;
+@property (nonatomic, retain) NSArray *allHotSpots;
 
 @end

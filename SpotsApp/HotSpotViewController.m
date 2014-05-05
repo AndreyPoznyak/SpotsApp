@@ -52,7 +52,7 @@
 - (void)sendSpotToService
 {
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    NSURL *postURL = [NSURL URLWithString: @"http://192.168.1.7:8765/hotspot"];
+    NSURL *postURL = [NSURL URLWithString: @"http://192.168.1.6:8765/hotspot"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: postURL
                                                            cachePolicy: NSURLRequestUseProtocolCachePolicy

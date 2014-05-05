@@ -14,6 +14,8 @@
 
 @implementation NetworksListTableViewController
 
+@synthesize allHotSpots;
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -28,8 +30,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    self.testArray = [[NSArray alloc] initWithObjects:@"one", @"two", nil];
+    [self fetchSpots];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -37,6 +38,42 @@
     // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
     // self.navigationItem.rightBarButtonItem = self.editButtonItem;
     
+}
+
+//TODO: check the reponse to be correct
+- (void)fetchSpots
+{
+    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+    NSURL *getURL = [NSURL URLWithString: @"http://192.168.1.6:8765/hotspots"];
+    
+    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: getURL
+                                                           cachePolicy: NSURLRequestUseProtocolCachePolicy
+                                                       timeoutInterval: 60.0];
+    
+    [request setHTTPMethod: @"GET"];
+    [request setValue: @"application/json" forHTTPHeaderField: @"Accept"];
+    
+    [NSURLConnection sendAsynchronousRequest: request
+                                       queue: queue
+                           completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error) {
+                               NSString *message = [[NSString alloc] init];
+                               if (error || !data) {
+                                   message = [error localizedDescription];
+                                   NSLog(message);
+                               } else {
+                                   NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+                                   if ([result valueForKey:@"success"]) {
+                                       self.allHotSpots = [[NSArray alloc] initWithObjects:[result valueForKey:@"spots"], nil];
+                                   } else {
+                                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Submit result" message:[result valueForKey:@"message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+                                       //in order to remove delay and show alert immediately
+                                       dispatch_async(dispatch_get_main_queue(), ^{
+                                           [alert show];
+                                       });
+                                   }
+                               }
+                           }
+     ];
 }
 
 - (void)didReceiveMemoryWarning
@@ -57,7 +94,7 @@
 {
 
     // Return the number of rows in the section.
-    return [self.testArray count];
+    return [self.allHotSpots count];
 }
 
 
@@ -71,7 +108,7 @@
         cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
     }
     
-    [cell.textLabel setText:[self.testArray objectAtIndex:indexPath.row]];
+    [cell.textLabel setText:[[self.allHotSpots objectAtIndex:indexPath.row] valueForKey: @"name" ]];
     
     return cell;
 }
