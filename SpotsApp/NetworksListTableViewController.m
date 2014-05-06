@@ -30,7 +30,6 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    [self fetchSpots];
     
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -41,40 +40,34 @@
 }
 
 //TODO: check the reponse to be correct
-- (void)fetchSpots
-{
-    NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    NSURL *getURL = [NSURL URLWithString: @"http://192.168.1.6:8765/hotspots"];
-    
-    NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: getURL
-                                                           cachePolicy: NSURLRequestUseProtocolCachePolicy
-                                                       timeoutInterval: 60.0];
-    
-    [request setHTTPMethod: @"GET"];
-    [request setValue: @"application/json" forHTTPHeaderField: @"Accept"];
-    
-    [NSURLConnection sendAsynchronousRequest: request
-                                       queue: queue
-                           completionHandler: ^(NSURLResponse *response, NSData *data, NSError *error) {
-                               NSString *message = [[NSString alloc] init];
-                               if (error || !data) {
-                                   message = [error localizedDescription];
-                                   NSLog(message);
-                               } else {
-                                   NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
-                                   if ([result valueForKey:@"success"]) {
-                                       self.allHotSpots = [[NSArray alloc] initWithObjects:[result valueForKey:@"spots"], nil];
-                                   } else {
-                                       UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Submit result" message:[result valueForKey:@"message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
-                                       //in order to remove delay and show alert immediately
-                                       dispatch_async(dispatch_get_main_queue(), ^{
-                                           [alert show];
-                                       });
-                                   }
-                               }
-                           }
-     ];
-}
+//- (void)fetchSpots
+//{
+//    NSURL *getURL = [NSURL URLWithString: @"http://192.168.1.7:8765/hotspots"];
+//    
+//    
+//    //synchronous request
+////    NSURLRequest * urlRequest = [NSURLRequest requestWithURL:getURL];
+////    NSURLResponse * response = nil;
+////    NSError * error = nil;
+////    NSData * data = [NSURLConnection sendSynchronousRequest:urlRequest
+////                                          returningResponse:&response
+////                                                      error:&error];
+////    
+////    if (error == nil) {
+////        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
+////        if ([[result valueForKey:@"success"] boolValue]) {
+////            self.allHotSpots = [[NSArray alloc] initWithObjects:[result valueForKey:@"spots"], nil];
+////        } else {
+////            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Submit result" message:[result valueForKey:@"message"] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+////            //in order to remove delay and show alert immediately
+////            dispatch_async(dispatch_get_main_queue(), ^{
+////                [alert show];
+////            });
+////        }
+////    } else {
+////        NSLog(@"%@", [error localizedDescription]);
+////    }
+//}
 
 - (void)didReceiveMemoryWarning
 {
@@ -105,10 +98,12 @@
     
     if(cell == nil)
     {
-        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellIdentifier];
+        cell = [[UITableViewCell alloc]initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:cellIdentifier];
     }
     
     [cell.textLabel setText:[[self.allHotSpots objectAtIndex:indexPath.row] valueForKey: @"name" ]];
+    [cell.detailTextLabel setText:[[self.allHotSpots objectAtIndex:indexPath.row] valueForKey: @"bssid" ]];
+    cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
     
     return cell;
 }

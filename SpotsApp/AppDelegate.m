@@ -35,7 +35,7 @@
 
 - (void)locationManager:(CLLocationManager *)manager didUpdateToLocation:(CLLocation *)newLocation fromLocation:(CLLocation*)oldLocation
 {
-    NSLog(@"Core location claims to have a position");
+    //NSLog(@"Core location claims to have a position");
 }
 
 - (void)locationManager:(CLLocationManager *)manager didFailWithError:(NSError *)error
@@ -46,6 +46,8 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
     [self refreshLocation];
+    //in order to use GoogleMaps
+    [GMSServices provideAPIKey:@"AIzaSyBoLPctbdPSVveHS_2e_Y05KnL5zXR6two"];
     // Override point for customization after application launch.
     return YES;
 }
