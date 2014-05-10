@@ -36,16 +36,6 @@
                                     <segue destination="jCn-v2-c26" kind="push" id="slC-7n-uF9"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3pI-ph-ke7">
-                                <rect key="frame" x="126" y="269" width="74" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Show map">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <connections>
-                                    <segue destination="rqY-Pr-hwh" kind="push" id="3Bm-Xn-Z6w"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
@@ -82,10 +72,13 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="5Hr-mg-3lY"/>
+                    <connections>
+                        <segue destination="rqY-Pr-hwh" kind="push" identifier="ListToMapSegue" id="r7F-tf-zsu"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ex-9O-Aa7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1342" y="-439"/>
+            <point key="canvasLocation" x="1326" y="-345"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="oyV-qh-AQR">
@@ -104,7 +97,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91u-0d-iJ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1330" y="398"/>
+            <point key="canvasLocation" x="1786" y="-345"/>
         </scene>
         <!--Hot Spot View Controller - Current network-->
         <scene sceneID="jqh-P7-Vp1">
@@ -190,7 +183,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1BW-uV-7gf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1714" y="20"/>
+            <point key="canvasLocation" x="1326" y="368"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dXP-wO-R7g">

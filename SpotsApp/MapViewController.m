@@ -7,6 +7,7 @@
 //
 
 #import "MapViewController.h"
+#import "AppDelegate.h"
 
 @interface MapViewController ()
 
@@ -14,7 +15,9 @@
 
 @implementation MapViewController
 
-GMSMapView *mapView_;
+@synthesize allHotSpots;
+
+GMSMapView *mapView;
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -27,22 +30,34 @@ GMSMapView *mapView_;
 
 - (void)viewDidLoad
 {
-    // Create a GMSCameraPosition that tells the map to display the
-    // coordinate -33.86,151.20 at zoom level 6.
-    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude:-33.86
-                                                            longitude:151.20
+    AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+
+    GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: appdelegate.currentLatitude
+                                                            longitude: appdelegate.currentLongitude
                                                                  zoom:6];
-    mapView_ = [GMSMapView mapWithFrame:CGRectZero camera:camera];
-    mapView_.myLocationEnabled = YES;
-    self.view = mapView_;
+    mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
+    mapView.myLocationEnabled = YES;
+    self.view = mapView;
     
-    // Creates a marker in the center of the map.
-    GMSMarker *marker = [[GMSMarker alloc] init];
-    marker.position = CLLocationCoordinate2DMake(-33.86, 151.20);
-    marker.title = @"Sydney";
-    marker.snippet = @"Australia";
-    marker.map = mapView_;
+    [self createMarkers];
 }
+
+- (void)createMarkers
+{
+    for (id spot in self.allHotSpots) {
+        GMSMarker *marker = [[GMSMarker alloc] init];
+        marker.position = CLLocationCoordinate2DMake([[spot valueForKey:@"latitude"] doubleValue], [[spot valueForKey:@"longitude"] doubleValue]);
+        marker.title = [spot valueForKey:@"name"];
+        marker.snippet = [spot valueForKey:@"bssid"];
+        marker.map = mapView;
+    }
+}
+
+//- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(id<GMSMarker>)marker
+//{
+//    NSLog(@"%@", marker);
+//    //[self performSegueWithIdentifier:@"ViewController" sender:[marker snippet]];
+//}
 
 - (void)didReceiveMemoryWarning
 {

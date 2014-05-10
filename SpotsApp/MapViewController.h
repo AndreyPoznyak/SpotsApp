@@ -11,4 +11,6 @@
 
 @interface MapViewController : UIViewController
 
+@property (nonatomic, retain) NSArray *allHotSpots;
+
 @end

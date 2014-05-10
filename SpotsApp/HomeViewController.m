@@ -91,9 +91,10 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
     NSLog(@"right before the segue");
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-   // [[segue destinationViewController] setAllHotSpots:self.allHotSpots];   //do this only for list
+    
+    if ([segue.identifier isEqualToString:@"HomeToListSegue"]) {
+        [[segue destinationViewController] setAllHotSpots:self.allHotSpots];
+    }
 }
 
 
