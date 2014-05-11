@@ -39,7 +39,7 @@
 //TODO: check the reponse to be correct
 - (void)fetchSpots
 {
-    NSURL *getURL = [NSURL URLWithString: @"http://192.168.1.7:8765/hotspots"];
+    NSURL *getURL = [NSURL URLWithString: @"http://192.168.1.5:8765/hotspots"];
     
     
     //anynchronous request example goes here:

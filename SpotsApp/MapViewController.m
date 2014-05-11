@@ -9,7 +9,7 @@
 #import "MapViewController.h"
 #import "AppDelegate.h"
 
-@interface MapViewController ()
+@interface MapViewController () <GMSMapViewDelegate>
 
 @end
 
@@ -34,10 +34,11 @@ GMSMapView *mapView;
 
     GMSCameraPosition *camera = [GMSCameraPosition cameraWithLatitude: appdelegate.currentLatitude
                                                             longitude: appdelegate.currentLongitude
-                                                                 zoom:6];
+                                                                 zoom:12];
     mapView = [GMSMapView mapWithFrame:CGRectZero camera:camera];
     mapView.myLocationEnabled = YES;
     self.view = mapView;
+    mapView.delegate = self;
     
     [self createMarkers];
 }
@@ -53,11 +54,11 @@ GMSMapView *mapView;
     }
 }
 
-//- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(id<GMSMarker>)marker
-//{
-//    NSLog(@"%@", marker);
-//    //[self performSegueWithIdentifier:@"ViewController" sender:[marker snippet]];
-//}
+- (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
+{
+    NSLog(@"%@", marker);
+    //[self performSegueWithIdentifier:@"ViewController" sender:[marker snippet]];
+}
 
 - (void)didReceiveMemoryWarning
 {
