@@ -19,15 +19,7 @@
 - (id)initWithName:(NSString *)newName andBssid:(NSString *)newBssid
 {
     AppDelegate *appdelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-
-    self = [super init];
-    if (self) {
-        self.name = newName;
-        self.bssid = newBssid;
-        self.latitude = appdelegate.currentLatitude;
-        self.longitude = appdelegate.currentLongitude;
-    }
-    return self;
+    return [self initWithName:newName andBssid:newBssid andLongitude:appdelegate.currentLongitude andLatitude:appdelegate.currentLatitude];
 }
 
 - (id)initWithName:(NSString *)newName andBssid:(NSString *)newBssid andLongitude:(double)newLongitude andLatitude:(double)newLatitude
