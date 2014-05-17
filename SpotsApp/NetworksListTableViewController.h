@@ -7,9 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "HotSpot.h"
 
 @interface NetworksListTableViewController : UITableViewController
 
 @property (nonatomic, retain) NSArray *allHotSpots;
+@property (strong, nonatomic) HotSpot *currentSpot;
 
 @end

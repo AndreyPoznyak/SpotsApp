@@ -32,11 +32,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    
-    id info = [self fetchSSIDInfo];
-    
-    self.currentSpot = [[HotSpot alloc] initWithName:info[@"SSID"] andBssid:info[@"BSSID"]];
-    
+            
     [self.labelName setText: self.currentSpot.name];
     [self.labelBssid setText: self.currentSpot.bssid];
     [self.labelLongitude setText: [NSString stringWithFormat:@"%.0f", self.currentSpot.longitude]];
@@ -44,15 +40,10 @@
 
 }
 
-- (id)fetchSSIDInfo
-{
-    return (__bridge_transfer id)CNCopyCurrentNetworkInfo((__bridge CFStringRef)@"en0");
-}
-
 - (void)sendSpotToService
 {
     NSOperationQueue *queue = [[NSOperationQueue alloc] init];
-    NSURL *postURL = [NSURL URLWithString: @"http://192.168.1.5:8765/hotspot"];
+    NSURL *postURL = [NSURL URLWithString: @"http://192.168.1.4:8765/hotspot"];
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL: postURL
                                                            cachePolicy: NSURLRequestUseProtocolCachePolicy

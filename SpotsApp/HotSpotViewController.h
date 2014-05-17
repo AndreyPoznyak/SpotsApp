@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import "HotSpot.h"
-#import <SystemConfiguration/CaptiveNetwork.h>
-
 
 @interface HotSpotViewController : UIViewController
 

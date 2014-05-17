@@ -36,10 +36,22 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)getCurrentSpotInfo
+{
+    id info = (__bridge_transfer id)CNCopyCurrentNetworkInfo((__bridge CFStringRef)@"en0");
+    if (info != nil) {
+        self.currentSpot = [[HotSpot alloc] initWithName:info[@"SSID"] andBssid:info[@"BSSID"]];
+        [self performSegueWithIdentifier:@"HomeToDetailsSegue" sender:self];//before segue spot info is passed to viewController
+    } else {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Error" message:@"Sorry, you are not connected to wifi network" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil];
+        [alert show];
+    }
+}
+
 //TODO: check the reponse to be correct
 - (void)fetchSpots
 {
-    NSURL *getURL = [NSURL URLWithString: @"http://192.168.1.5:8765/hotspots"];
+    NSURL *getURL = [NSURL URLWithString: @"http://192.168.1.4:8765/hotspots"];
     
     
     //anynchronous request example goes here:
@@ -61,8 +73,14 @@
                                    } else {
                                        NSDictionary *result = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];
                                        if ([[result valueForKey:@"success"] boolValue]) {
-                                           self.allHotSpots = [[NSArray alloc] initWithArray:[result valueForKey:@"spots"]];
-                                           NSLog(@"Just received %lu hotspots", (unsigned long)[self.allHotSpots count]);
+                                           NSArray *hotSpots = [[NSArray alloc] initWithArray:[result valueForKey:@"spots"]];
+                                           NSLog(@"Just received %lu hotspots", (unsigned long)[hotSpots count]);
+                                           
+                                           NSMutableArray *finalSpots = [[NSMutableArray alloc] init];
+                                           for (id spot in hotSpots) {
+                                               [finalSpots addObject:[[HotSpot alloc] initWithObject:spot]];
+                                           }
+                                           self.allHotSpots = [[NSArray alloc] initWithArray:finalSpots];
                                            //not to wait
                                            dispatch_async(dispatch_get_main_queue(), ^{
                                                [self performSegueWithIdentifier:@"HomeToListSegue" sender:self];
@@ -84,16 +102,20 @@
     [self fetchSpots];
 }
 
+- (IBAction)getCurrentPressed {
+    [self getCurrentSpotInfo];
+}
+
 
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    NSLog(@"right before the segue");
-    
     if ([segue.identifier isEqualToString:@"HomeToListSegue"]) {
         [[segue destinationViewController] setAllHotSpots:self.allHotSpots];
+    } else if ([segue.identifier isEqualToString:@"HomeToDetailsSegue"]) {
+        [[segue destinationViewController] setCurrentSpot:self.currentSpot];
     }
 }
 

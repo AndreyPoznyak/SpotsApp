@@ -15,6 +15,7 @@
 @implementation NetworksListTableViewController
 
 @synthesize allHotSpots;
+@synthesize currentSpot;
 
 - (id)initWithStyle:(UITableViewStyle)style
 {
@@ -105,6 +106,9 @@
     
     if (indexPath.row == 0) {
         [self performSegueWithIdentifier:@"ListToMapSegue" sender:self];
+    } else {
+        self.currentSpot = [self.allHotSpots objectAtIndex:indexPath.row - 1];
+        [self performSegueWithIdentifier:@"ListToDetailsSegue" sender:self];
     }
 }
 
@@ -123,8 +127,8 @@
     if (indexPath.row == 0) {
         [cell.textLabel setText:@"View all on map"];
     } else {
-        [cell.textLabel setText:[[self.allHotSpots objectAtIndex:indexPath.row - 1] valueForKey: @"name" ]];
-        [cell.detailTextLabel setText:[[self.allHotSpots objectAtIndex:indexPath.row - 1] valueForKey: @"bssid" ]];
+        [cell.textLabel setText:((HotSpot *)[self.allHotSpots objectAtIndex:indexPath.row - 1]).name];
+        [cell.detailTextLabel setText:((HotSpot *)[self.allHotSpots objectAtIndex:indexPath.row - 1]).bssid];
     }
     
     return cell;
@@ -134,7 +138,11 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-     [[segue destinationViewController] setAllHotSpots:self.allHotSpots];
+    if ([segue.identifier isEqualToString:@"ListToMapSegue"]) {
+        [[segue destinationViewController] setAllHotSpots:self.allHotSpots];
+    } else if ([segue.identifier isEqualToString:@"ListToDetailsSegue"]) {
+        [[segue destinationViewController] setCurrentSpot:self.currentSpot];
+    }
 }
 
 

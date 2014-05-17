@@ -16,6 +16,8 @@
 @property (nonatomic) double longitude;
 
 - (id)initWithName: (NSString *)newName andBssid: (NSString *)newBssid;
+- (id)initWithName:(NSString *)newName andBssid:(NSString *)newBssid andLongitude:(double)newLongitude andLatitude:(double)newLatitude;
+- (id)initWithObject: (id)data;
 - (NSData *)jsonData;
 
 @end

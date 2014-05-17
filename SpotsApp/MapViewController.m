@@ -16,6 +16,7 @@
 @implementation MapViewController
 
 @synthesize allHotSpots;
+@synthesize currentSpot;
 
 GMSMapView *mapView;
 
@@ -45,19 +46,22 @@ GMSMapView *mapView;
 
 - (void)createMarkers
 {
-    for (id spot in self.allHotSpots) {
+    for (HotSpot *spot in self.allHotSpots) {
         GMSMarker *marker = [[GMSMarker alloc] init];
-        marker.position = CLLocationCoordinate2DMake([[spot valueForKey:@"latitude"] doubleValue], [[spot valueForKey:@"longitude"] doubleValue]);
-        marker.title = [spot valueForKey:@"name"];
-        marker.snippet = [spot valueForKey:@"bssid"];
+        marker.position = CLLocationCoordinate2DMake(spot.latitude, spot.longitude);
+        marker.title = spot.name;
+        marker.snippet = spot.bssid;
+        marker.userData = @{
+                            @"index": [NSNumber numberWithInt:[self.allHotSpots indexOfObject:spot]]
+                            };
         marker.map = mapView;
     }
 }
 
 - (void)mapView:(GMSMapView *)mapView didTapInfoWindowOfMarker:(GMSMarker *)marker
 {
-    NSLog(@"%@", marker);
-    //[self performSegueWithIdentifier:@"ViewController" sender:[marker snippet]];
+    self.currentSpot = [self.allHotSpots objectAtIndex:[[marker.userData valueForKey:@"index"] intValue]];
+    [self performSegueWithIdentifier:@"MapToDetailsSegue" sender:self];
 }
 
 - (void)didReceiveMemoryWarning
@@ -66,15 +70,16 @@ GMSMapView *mapView;
     // Dispose of any resources that can be recreated.
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([segue.identifier isEqualToString:@"MapToDetailsSegue"]) {
+        [[segue destinationViewController] setCurrentSpot:self.currentSpot];
+    }
 }
-*/
+
 
 @end

@@ -33,7 +33,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="jCn-v2-c26" kind="push" id="slC-7n-uF9"/>
+                                    <action selector="getCurrentPressed" destination="vXZ-lx-hvc" eventType="touchUpInside" id="RId-MV-Ill"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -42,6 +42,7 @@
                     <navigationItem key="navigationItem" title="Home" id="rQE-oz-ISx"/>
                     <connections>
                         <segue destination="mbH-su-GA6" kind="push" identifier="HomeToListSegue" id="D3r-Y2-nU1"/>
+                        <segue destination="jCn-v2-c26" kind="push" identifier="HomeToDetailsSegue" id="Ebo-M7-NbI"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -74,11 +75,12 @@
                     <navigationItem key="navigationItem" id="5Hr-mg-3lY"/>
                     <connections>
                         <segue destination="rqY-Pr-hwh" kind="push" identifier="ListToMapSegue" id="r7F-tf-zsu"/>
+                        <segue destination="jCn-v2-c26" kind="push" identifier="ListToDetailsSegue" id="Iba-n6-fHN"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7ex-9O-Aa7" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1326" y="-345"/>
+            <point key="canvasLocation" x="1346" y="-387"/>
         </scene>
         <!--Map View Controller-->
         <scene sceneID="oyV-qh-AQR">
@@ -94,10 +96,13 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="fRb-eK-zF6"/>
+                    <connections>
+                        <segue destination="jCn-v2-c26" kind="push" identifier="MapToDetailsSegue" id="uov-8F-89Y"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="91u-0d-iJ4" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1786" y="-345"/>
+            <point key="canvasLocation" x="1932" y="-466"/>
         </scene>
         <!--Hot Spot View Controller - Current network-->
         <scene sceneID="jqh-P7-Vp1">
@@ -183,7 +188,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1BW-uV-7gf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1326" y="368"/>
+            <point key="canvasLocation" x="2275" y="401"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dXP-wO-R7g">
@@ -209,4 +214,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="Iba-n6-fHN"/>
+    </inferredMetricsTieBreakers>
 </document>

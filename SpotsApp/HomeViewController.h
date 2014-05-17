@@ -7,9 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <SystemConfiguration/CaptiveNetwork.h>
+#import "HotSpot.h"
+
 
 @interface HomeViewController : UIViewController
 
 @property (nonatomic, retain) NSArray *allHotSpots;
+@property (strong, nonatomic) HotSpot *currentSpot;
 
 @end

@@ -30,6 +30,31 @@
     return self;
 }
 
+- (id)initWithName:(NSString *)newName andBssid:(NSString *)newBssid andLongitude:(double)newLongitude andLatitude:(double)newLatitude
+{
+    self = [super init];
+    if (self) {
+        self.name = newName;
+        self.bssid = newBssid;
+        self.latitude = newLatitude;
+        self.longitude = newLongitude;
+    }
+    return self;
+}
+
+- (id)initWithObject: (id)data
+{
+    //TODO: add validation of existence
+    self = [super init];
+    if (self) {
+        self.name = [data valueForKey:@"name"];
+        self.bssid = [data valueForKey:@"bssid"];
+        self.latitude = [[data valueForKey:@"latitude"] doubleValue];
+        self.longitude = [[data valueForKey:@"longitude"] doubleValue];
+    }
+    return self;
+}
+
 - (NSData *)jsonData
 {
     NSDictionary *jsonDict = [[NSDictionary alloc] initWithObjectsAndKeys:

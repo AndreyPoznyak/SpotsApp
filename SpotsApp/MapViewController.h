@@ -8,9 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import <GoogleMaps/GoogleMaps.h>
+#import "HotSpot.h"
 
 @interface MapViewController : UIViewController
 
 @property (nonatomic, retain) NSArray *allHotSpots;
+@property (strong, nonatomic) HotSpot *currentSpot;
 
 @end
